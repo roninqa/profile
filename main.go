@@ -1,17 +1,20 @@
 package main
 
-import "html/template"
-import "net/http"
-import "log"
+import (
+	"html/template"
+	"log"
+	"net/http"
+)
 
 var tpl *template.Template
 
 func init() {
-	tpl = template.Must(template.ParseGlob("templates/*.gohtml"))
+	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
 func main() {
-	http.HandleFunc("/", index)
+	http.Handle("/", http.FileServer(http.Dir(".")))
+	http.HandleFunc("/index", index)
 	http.ListenAndServe(":8080", nil)
 }
 

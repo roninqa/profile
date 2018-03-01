@@ -1,15 +1,11 @@
-#idx-atf {
+#atf {
     background-image: url("../img/robot-lg.jpeg");
 }
 
-#idx-atf > div {
+#atf > div {
     height: 18vh;
 }
 
 h1 {
     font-size: 3rem;
-}
-
-h3 {
-    margin-top: .4rem;
 }
